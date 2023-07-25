@@ -31,5 +31,4 @@ int main()
 {
     vector<vector<int>> Mat = {{1, 5, 9}, {10, 11, 13}, {12, 13, 15}};
     cout << kthSmallest(Mat, 8) << endl;
-    ;
 }
