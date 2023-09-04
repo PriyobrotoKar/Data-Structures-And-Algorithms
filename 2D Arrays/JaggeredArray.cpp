@@ -35,4 +35,11 @@ int main()
         }
         cout << endl;
     }
+
+    for (int i = 0; i < row; i++)
+    {
+        delete[] arr[i];
+    }
+    delete[] cols;
+    delete[] arr;
 }
