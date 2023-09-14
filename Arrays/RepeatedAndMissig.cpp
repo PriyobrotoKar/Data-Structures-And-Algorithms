@@ -25,5 +25,5 @@ vector<int> findTwoElement(vector<int> arr, int n)
 int main()
 {
     vector<int> ar = {1, 3, 3};
-    cout << findTwoElement(ar, ar.size())[0] << " " << findTwoElement(ar, ar.size())[1] << endl;
+    cout << findTwoElement(ar, ar.size())[0] << " " << findTwoElement(ar, ar.size())[1] << endl; //* Output: repeated missing => 3 2
 }
