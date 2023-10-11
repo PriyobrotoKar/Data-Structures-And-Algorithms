@@ -1,5 +1,6 @@
 #include <iostream>
 #include <algorithm>
+#include <vector>
 using namespace std;
 
 int romanToDecimal(string &str)
@@ -28,6 +29,11 @@ int romanToDecimal(string &str)
             v = 1000;
         p.push_back(v);
     }
+    for (int i = 0; i < p.size(); i++)
+    {
+        cout << p[i] << " ";
+    }
+    cout << endl;
 
     for (int i = 0; i < p.size() - 1; i++)
     {
@@ -40,7 +46,6 @@ int romanToDecimal(string &str)
     }
     sum = sum + p[p.size() - 1];
     return sum;
-}
 }
 
 int main()

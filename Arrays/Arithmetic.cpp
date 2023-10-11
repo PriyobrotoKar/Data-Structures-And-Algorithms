@@ -5,11 +5,15 @@ using namespace std;
 int inSequence(int A, int B, int C)
 {
     // code here
-    double n = (double(B - A) / C) + 1;
-    // double n = float(4 / 3);
-    // int n = 0;
-    cout << n << endl;
-    return (floor(n) == n) ? 1 : 0;
+    if (C == 0)
+    {
+        return (A == B) ? 1 : 0;
+    }
+    else
+    {
+        double n = (double(B - A) / C) + 1;
+        return (floor(n) == n && n > 0) ? 1 : 0;
+    }
 }
 
 int main()
