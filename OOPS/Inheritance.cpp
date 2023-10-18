@@ -33,7 +33,7 @@ public:
     }
     void display()
     {
-        Student::display();
+        Student::display(); //* <-- This is called Inheritance Ambiguity
         cout << "Physics marks:" << phy << " Chemistry Marks:" << chem << endl;
     }
 };
