@@ -42,7 +42,7 @@ void insertAtMiddle(int data, int pos, Node *&head)
     }
     else
     {
-        cout << "Entered Position is out of bounds" << endl;
+        cout << "InsertAtMiddle : Entered Position is out of bounds" << endl;
         exit(1);
     }
 }

@@ -25,8 +25,34 @@ void insertAtHead(int data, Node *&head)
     cout << "Node inserted successfully at head -> " << data << endl;
 }
 
-void insertAtMiddle(int data, Node *&head)
+void insertAtMiddle(int data, int pos, Node *&head)
 {
+    if (pos == 1)
+    {
+        insertAtHead(data, head);
+    }
+    else
+    {
+        Node *node = new Node(data);
+        Node *temp = head;
+        int cnt = 1;
+        while (temp && cnt < pos - 1)
+        {
+            temp = temp->next;
+            cnt++;
+        }
+        if (cnt + 1 == pos && temp)
+        {
+            node->next = temp->next;
+            temp->next = node;
+            cout << "Node inserted successfully at position " << pos << "-> " << data << endl;
+        }
+        else
+        {
+            cout << "InsertAtMiddle : Entered Position is out of bounds" << endl;
+            exit(1);
+        }
+    }
 }
 void insertAtTail(int data, Node *&head)
 {
@@ -67,5 +93,8 @@ int main()
     insertAtHead(90, head);
     insertAtTail(60, head);
     insertAtTail(30, head);
+    insertAtMiddle(5, 1, head);
+    insertAtMiddle(13, 3, head);
+    insertAtMiddle(20, 10, head);
     printNodes(head);
 }
