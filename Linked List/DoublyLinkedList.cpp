@@ -54,6 +54,7 @@ void insertAtMiddle(int data, int pos, Node *&head)
         }
     }
 }
+
 void insertAtTail(int data, Node *&head)
 {
     Node *node = new Node(data);
@@ -70,6 +71,42 @@ void insertAtTail(int data, Node *&head)
         else
         {
             temp = temp->next;
+        }
+    }
+}
+
+void deleteNode(int pos, Node *&head)
+{
+    if (pos == 1)
+    {
+        // Deleting head
+        Node *temp = head;
+        head = head->next;
+        temp->next = NULL;
+        delete temp;
+    }
+    else
+    {
+        // Deleting any other node
+        int cnt = 1;
+        Node *currNode = head;
+        Node *prevNode = NULL;
+        while (cnt < pos && currNode)
+        {
+            prevNode = currNode;
+            currNode = currNode->next;
+            cnt++;
+        }
+        if (cnt == pos && currNode)
+        {
+            prevNode->next = currNode->next;
+            currNode->next = NULL;
+            delete currNode;
+        }
+        else
+        {
+            cout << "DeleteNode : Entered position is out of bounds" << endl;
+            exit(1);
         }
     }
 }
@@ -95,6 +132,8 @@ int main()
     insertAtTail(30, head);
     insertAtMiddle(5, 1, head);
     insertAtMiddle(13, 3, head);
-    insertAtMiddle(20, 10, head);
+    insertAtMiddle(20, 8, head);
+    printNodes(head);
+    deleteNode(10, head);
     printNodes(head);
 }
