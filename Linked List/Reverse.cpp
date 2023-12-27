@@ -39,6 +39,18 @@ void printNode(Node *head)
     cout << endl;
 }
 
+Node *reverseRecursively(Node *head)
+{
+    if (head->next == NULL)
+    {
+        return head;
+    }
+    Node *revHead = reverseRecursively(head->next);
+    head->next->next = head;
+    head->next = NULL;
+    return revHead;
+}
+
 Node *reverseLinkedList(Node *head)
 {
     Node *prev = NULL;
@@ -50,7 +62,7 @@ Node *reverseLinkedList(Node *head)
         curr->next = prev;
         prev = curr;
         curr = forward;
-        }
+    }
     return prev;
 }
 
@@ -59,6 +71,8 @@ int main()
     Node *newNode = new Node(3);
     Node *head = newNode;
     insertAtTail(5, head);
+    insertAtTail(9, head);
+    insertAtTail(12, head);
     printNode(head);
-    printNode(reverseLinkedList(head));
+    printNode(reverseRecursively(head));
 }
