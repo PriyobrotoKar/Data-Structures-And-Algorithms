@@ -18,12 +18,12 @@ queue<int> modifyQueue(queue<int> q, int k)
         q.push(s.top());
         s.pop();
     }
-
-    while (k - 1 != 0)
+    int t = q.size() - k;
+    while (t)
     {
         q.push(q.front());
         q.pop();
-        k--;
+        t--;
     }
 
     return q;
